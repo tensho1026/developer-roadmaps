@@ -1,0 +1,21 @@
+{
+  "name": "front-sveltekit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5178",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "*",
+    "svelte": "*"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "*",
+    "@sveltejs/vite-plugin-svelte": "*",
+    "typescript": "*",
+    "vite": "*"
+  }
+}

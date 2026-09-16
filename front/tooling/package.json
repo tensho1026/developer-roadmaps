@@ -1,0 +1,19 @@
+{
+  "name": "front-tooling",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "check": "biome check ."
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "prettier": "*",
+    "@eslint/js": "*",
+    "typescript": "*",
+    "typescript-eslint": "*",
+    "@biomejs/biome": "*"
+  }
+}

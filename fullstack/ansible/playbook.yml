@@ -1,0 +1,9 @@
+---
+- name: Full-stack roadmap ansible lab
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Ping locally
+      ansible.builtin.debug:
+        msg: "Ansible is ready"

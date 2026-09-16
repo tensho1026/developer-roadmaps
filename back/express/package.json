@@ -1,0 +1,35 @@
+{
+  "name": "back-express",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "express": "*",
+    "cors": "*",
+    "helmet": "*",
+    "morgan": "*",
+    "winston": "*",
+    "dotenv": "*",
+    "jsonwebtoken": "*",
+    "bcryptjs": "*",
+    "pg": "*",
+    "zod": "*",
+    "axios": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "tsx": "*",
+    "@types/node": "*",
+    "@types/express": "*",
+    "@types/cors": "*",
+    "@types/jsonwebtoken": "*",
+    "@types/bcryptjs": "*",
+    "@types/morgan": "*",
+    "vitest": "*"
+  }
+}

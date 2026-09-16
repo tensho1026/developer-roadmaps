@@ -1,0 +1,3 @@
+# Astro
+
+`npm run dev` → http://localhost:4321

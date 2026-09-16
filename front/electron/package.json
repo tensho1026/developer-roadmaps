@@ -1,0 +1,13 @@
+{
+  "name": "front-electron",
+  "private": true,
+  "version": "0.1.0",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "dependencies": {
+    "electron": "*"
+  }
+}

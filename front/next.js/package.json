@@ -1,0 +1,24 @@
+{
+  "name": "front-nextjs",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/node": "*",
+    "tailwindcss": "*",
+    "@tailwindcss/postcss": "*"
+  }
+}

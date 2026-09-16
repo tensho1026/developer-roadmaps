@@ -1,0 +1,24 @@
+{
+  "name": "front-graphql",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5180",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "graphql": "*",
+    "@apollo/client": "*",
+    "urql": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "vite": "*",
+    "@vitejs/plugin-react": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*"
+  }
+}

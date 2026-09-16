@@ -1,0 +1,29 @@
+{
+  "name": "fullstack-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "express": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "pg": "*",
+    "redis": "*",
+    "zod": "*",
+    "dotenv": "*",
+    "bcryptjs": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "tsx": "*",
+    "@types/node": "*",
+    "@types/express": "*",
+    "@types/cors": "*",
+    "@types/jsonwebtoken": "*",
+    "@types/bcryptjs": "*"
+  }
+}

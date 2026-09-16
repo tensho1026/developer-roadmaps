@@ -1,0 +1,18 @@
+{
+  "name": "front-typescript",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "tsx": "*",
+    "@types/node": "*"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "back-hono",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "hono": "*",
+    "@hono/node-server": "*",
+    "@hono/zod-validator": "*",
+    "zod": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "tsx": "*",
+    "@types/node": "*"
+  }
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML / CSS / JavaScript</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Frontend basics</h1>
+    <p>roadmap.sh: HTML, CSS, JavaScript, Accessibility, Web APIs</p>
+  </header>
+  <main>
+    <form id="echo-form" aria-describedby="hint">
+      <label for="message">メッセージ</label>
+      <input id="message" name="message" required />
+      <button type="submit">表示する</button>
+    </form>
+    <p id="hint">Enter で Web API の <code>fetch</code> を試せます（httpbin）。</p>
+    <output id="result" for="message"></output>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

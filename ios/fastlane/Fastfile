@@ -1,0 +1,8 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Run Swift package tests"
+  lane :tests do
+    sh("cd .. && swift test")
+  end
+end

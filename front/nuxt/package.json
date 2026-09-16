@@ -1,0 +1,16 @@
+{
+  "name": "front-nuxt",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --port 3005",
+    "build": "nuxt build",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "*",
+    "vue": "*",
+    "vue-router": "*"
+  }
+}

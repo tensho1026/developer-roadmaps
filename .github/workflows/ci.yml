@@ -1,0 +1,19 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  node-health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install express playground
+        working-directory: back/express
+        run: npm install
+      - name: Typecheck express
+        working-directory: back/express
+        run: npx tsc --noEmit

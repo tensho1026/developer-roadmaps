@@ -1,0 +1,28 @@
+{
+  "name": "front-tanstack",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5177",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "@tanstack/react-query": "*",
+    "@tanstack/react-query-devtools": "*",
+    "@tanstack/react-router": "*",
+    "@tanstack/react-table": "*",
+    "@tanstack/react-form": "*",
+    "@tanstack/react-virtual": "*",
+    "zod": "*"
+  },
+  "devDependencies": {
+    "typescript": "*",
+    "vite": "*",
+    "@vitejs/plugin-react": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "roadmaps-react-native",
+    "slug": "roadmaps-react-native",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"]
+  }
+}
