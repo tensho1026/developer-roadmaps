@@ -23,8 +23,11 @@
 | Next.js | `front/next.js` |
 | Nuxt.js | `front/nuxt` |
 | Astro | `front/astro` |
-| TanStack | `front/tanstack` |
-| GraphQL / Apollo | `front/graphql` |
+| TanStack Query / Table / Form | `front/tanstack` |
+| TanStack Start | `front/tanstack-start` |
+| GraphQL / Apollo | `front/graphql` + `back/graphql` |
+| PWA / Service Worker | `front/pwa` |
+| Web Components | `front/web-components` |
 | Electron | `front/electron` |
 | React Native | `front/react-native` |
 | Auth / JWT（フロントから叩く） | `fullstack/app`, `back/express` |
@@ -46,13 +49,19 @@
 | MySQL / MongoDB / Redis / RabbitMQ | `docker-compose.yml` |
 | Nginx | `back/nginx` + compose |
 | REST / JSON APIs / JWT / bcrypt | `back/express`, `fullstack/app` |
+| Prisma / OpenAPI | `back/prisma` |
+| WebSockets / SSE | `back/realtime` |
+| GraphQL server | `back/graphql` |
+| OAuth | `back/oauth` |
+| CLI (commander) | `back/cli` |
 | Testing | 各 Node プロジェクトの vitest / XCTest |
 
 ## Full Stack
 
 | ノード | 場所 |
 | --- | --- |
-| HTML/CSS/JS → React → Node → REST → JWT → Redis → PostgreSQL | `fullstack/app` + compose |
+| HTML/CSS/JS → Node → REST → JWT → Redis → PostgreSQL CRUD | `fullstack/app` + compose |
+| CLI Apps | `back/cli` |
 | GitHub Actions | `.github/workflows/ci.yml` |
 | Terraform | `fullstack/terraform` |
 | Ansible | `fullstack/ansible` |
@@ -65,7 +74,8 @@
 
 | ノード | 場所 |
 | --- | --- |
-| Swift / SwiftUI | `ios/Sources` |
+| Swift / SwiftUI | `ios/Sources`, `ios/RoadmapsApp` |
+| UIKit / Combine / Core Data | `ios/RoadmapsApp` |
 | URLSession / Alamofire | `ios/Sources/IosPlayground/Networking.swift` |
 | UserDefaults | `Persistence.swift` |
 | Swift Package Manager | `ios/Package.swift` |

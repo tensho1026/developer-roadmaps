@@ -1,8 +1,12 @@
 # Full Stack app
 
-[roadmap.sh/full-stack](https://roadmap.sh/full-stack) の一本道を小さな CRUD/JWT アプリにしたものです。
+HTML / CSS / JS + Node REST + JWT + PostgreSQL + Redis。
 
 ```bash
-cp .env.example .env
+# リポジトリルート
+docker compose up -d postgres redis
+cp .env.example .env   # fullstack/app でも可
 npm run dev
 ```
+
+初期ユーザー: `ada@example.com` / `password`

@@ -12,4 +12,4 @@ swift build
 swift test
 ```
 
-UIKit / Core Data / Combine は Xcode の iOS App テンプレートにこの Package を追加して使います。
+UIKit / Core Data / Combine は `ios/RoadmapsApp/RoadmapsApp.xcodeproj` を Xcode で開いてください。

@@ -1,3 +1,11 @@
-# GraphQL
+# GraphQL / Apollo
 
-Apollo Client。`npm run dev` → http://localhost:5180
+ローカル Yoga（`back/graphql`）に接続します。
+
+```bash
+# 別ターミナル
+cd ../../back/graphql && npm run dev
+npm run dev
+```
+
+http://localhost:5180

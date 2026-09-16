@@ -7,32 +7,53 @@
   <style>
     :root { font-family: system-ui, sans-serif; }
     body { max-width: 40rem; margin: 2rem auto; }
-    label, input, button { display: block; width: 100%; margin-top: 0.5rem; }
-    input, button { font: inherit; padding: 0.5rem; }
+    label, input, button, textarea { display: block; width: 100%; margin-top: 0.5rem; }
+    input, button, textarea { font: inherit; padding: 0.5rem; }
     pre { background: #111; color: #eee; padding: 1rem; overflow: auto; }
   </style>
 </head>
 <body>
   <h1>Full Stack playground</h1>
-  <p>HTML / CSS / JS + Node REST + JWT。Postgres / Redis は docker compose で起動。</p>
+  <p>JWT + PostgreSQL のユーザー / メモ CRUD。一覧は Redis に 30 秒キャッシュします。</p>
   <form id="login">
     <label>email <input name="email" type="email" value="ada@example.com" required /></label>
     <label>password <input name="password" type="password" value="password" required /></label>
-    <button>ログインして /api/health を叩く</button>
+    <button>ログイン</button>
+  </form>
+  <form id="note">
+    <label>メモ <input name="body" value="hello postgres" required /></label>
+    <button>メモを保存</button>
   </form>
   <pre id="out"></pre>
   <script>
     const out = document.querySelector("#out");
+    let token = "";
+    const json = (path, options = {}) =>
+      fetch(path, {
+        ...options,
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: "Bearer " + token } : {}),
+          ...(options.headers || {}),
+        },
+      }).then((r) => r.json());
+
     document.querySelector("#login").addEventListener("submit", async (e) => {
       e.preventDefault();
       const body = Object.fromEntries(new FormData(e.target));
-      const login = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      }).then((r) => r.json());
-      const health = await fetch("/api/health").then((r) => r.json());
-      out.textContent = JSON.stringify({ login, health }, null, 2);
+      const login = await json("/api/login", { method: "POST", body: JSON.stringify(body) });
+      token = login.token || "";
+      const health = await json("/api/health");
+      const notes = token ? await json("/api/notes") : null;
+      out.textContent = JSON.stringify({ login, health, notes }, null, 2);
+    });
+
+    document.querySelector("#note").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const body = Object.fromEntries(new FormData(e.target));
+      const created = await json("/api/notes", { method: "POST", body: JSON.stringify(body) });
+      const notes = await json("/api/notes");
+      out.textContent = JSON.stringify({ created, notes }, null, 2);
     });
   </script>
 </body>

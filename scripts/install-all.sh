@@ -19,7 +19,11 @@ install_npm() {
 
 while IFS= read -r pkg; do
   install_npm "$(dirname "$pkg")"
-done < <(find front back fullstack/app -name package.json -not -path '*/node_modules/*' | sort)
+done < <(find front back fullstack -name package.json -not -path '*/node_modules/*' | sort)
+
+if [[ -f back/prisma/.env.example && ! -f back/prisma/.env ]]; then
+  cp back/prisma/.env.example back/prisma/.env
+fi
 
 if [[ -f back/python/pyproject.toml ]]; then
   echo "==> uv sync back/python"

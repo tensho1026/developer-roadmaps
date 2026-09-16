@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Prisma CRUD lab",
+    "version": "0.1.0",
+    "description": "roadmap.sh Node.js: Prisma + REST. OpenAPI is served at /docs."
+  },
+  "servers": [{ "url": "http://localhost:3020" }],
+  "paths": {
+    "/health": {
+      "get": { "summary": "Health", "responses": { "200": { "description": "ok" } } }
+    },
+    "/users": {
+      "get": { "summary": "List users", "responses": { "200": { "description": "users" } } },
+      "post": {
+        "summary": "Create user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "name"],
+                "properties": {
+                  "email": { "type": "string" },
+                  "name": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "created" } }
+      }
+    },
+    "/posts": {
+      "get": { "summary": "List posts", "responses": { "200": { "description": "posts" } } },
+      "post": {
+        "summary": "Create post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["title", "body", "userId"],
+                "properties": {
+                  "title": { "type": "string" },
+                  "body": { "type": "string" },
+                  "userId": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "created" } }
+      }
+    },
+    "/posts/{id}": {
+      "delete": {
+        "summary": "Delete post",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "204": { "description": "deleted" } }
+      }
+    }
+  }
+}

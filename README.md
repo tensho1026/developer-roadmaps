@@ -58,6 +58,7 @@ docker compose up -d postgres redis
 | **Next.js** | `front/next.js` | `next`, `react`, `react-dom`, Tailwind |
 | **Nuxt.js** | `front/nuxt` | `nuxt`, `vue`, `vue-router` |
 | **SvelteKit** | `front/sveltekit` | `@sveltejs/kit`, `svelte`, `@sveltejs/adapter-auto` |
+| **TanStack Start** | `front/tanstack-start` | `@tanstack/react-start`, `@tanstack/react-router` |
 | **Astro** | `front/astro` | `astro` |
 
 ### モバイル / デスクトップ
@@ -66,8 +67,8 @@ docker compose up -d postgres redis
 | --- | --- | --- |
 | **React Native / Expo** | `front/react-native` | `expo`, `expo-status-bar`, `react-native`, `react` |
 | **Electron** | `front/electron` | `electron` |
-| **SwiftUI** | `ios/Sources` | Apple 標準（SPM ターゲット） |
-| **UIKit 相当の題材** | `ios/README.md` | Xcode の iOS App からこの Package を追加して使う前提 |
+| **SwiftUI** | `ios/RoadmapsApp` | Xcode アプリ |
+| **UIKit** | `ios/RoadmapsApp` | `UIViewControllerRepresentable` |
 
 ### バックエンド HTTP
 
@@ -89,7 +90,7 @@ docker compose up -d postgres redis
 
 | フレームワーク | 場所 | 役割 |
 | --- | --- | --- |
-| Express + 静的 HTML | `fullstack/app` | REST / JWT / PostgreSQL / Redis をつなぐ練習用アプリ |
+| Express + 静的 HTML | `fullstack/app` | JWT + PostgreSQL CRUD + Redis キャッシュ |
 
 ---
 
@@ -111,7 +112,7 @@ docker compose up -d postgres redis
 | アニメーション | `framer-motion` |
 | テスト | `vitest`, `jsdom`, `@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event` |
 
-### TanStack（`front/tanstack`）
+### TanStack（`front/tanstack` / `front/tanstack-start`）
 
 - `@tanstack/react-query`
 - `@tanstack/react-query-devtools`
@@ -119,6 +120,7 @@ docker compose up -d postgres redis
 - `@tanstack/react-table`
 - `@tanstack/react-form`
 - `@tanstack/react-virtual`
+- `@tanstack/react-start`
 - `zod`
 
 ### Vue 周辺（`front/vue`）
@@ -129,11 +131,10 @@ docker compose up -d postgres redis
 - `tailwindcss` / `@tailwindcss/vite`
 - `vue-tsc`
 
-### GraphQL（`front/graphql`）
+### GraphQL（`front/graphql` + `back/graphql`）
 
-- `graphql`
-- `@apollo/client`
-- `urql`
+- サーバー: `graphql-yoga`, `graphql`
+- クライアント: `@apollo/client`, `urql`
 
 ### Angular 周辺（`front/angular`）
 
@@ -158,8 +159,12 @@ docker compose up -d postgres redis
 | Web | `express`, `cors`, `helmet`, `morgan` | `back/express`（fullstack は express + cors） |
 | 認証 | `jsonwebtoken`, `bcryptjs` | `back/express`, `fullstack/app` |
 | ログ | `winston`, `morgan` | `back/express` |
-| DB | `pg` | `back/express`, `fullstack/app` |
+| DB | `pg`, `@prisma/client` | `fullstack/app`, `back/prisma` |
+| ORM | Prisma | `back/prisma` |
 | キャッシュ | `redis`（npm） | `fullstack/app` |
+| リアルタイム | `ws` | `back/realtime` |
+| CLI | `commander`, `chalk` | `back/cli` |
+| OpenAPI | `/docs` Swagger UI | `back/prisma` |
 | 設定 | `dotenv` | `back/express`, `fullstack/app` |
 | バリデーション | `zod` | Express / Hono / Fastify / fullstack / TypeScript |
 | HTTP クライアント | `axios` | `back/express` |
@@ -196,7 +201,7 @@ docker compose up -d postgres redis
 ### iOS 標準 API（コードで使用）
 
 - `Foundation`（`URLSession`, `JSONDecoder`, `UserDefaults`）
-- `SwiftUI`（`View`, `@State`, `Button`）
+- `SwiftUI` / `UIKit` / `Combine` / `Core Data`（`ios/RoadmapsApp`）
 - `XCTest`
 
 品質ツール: SwiftLint（`.swiftlint.yml`）、Fastlane（`ios/fastlane/Fastfile`）、Swift Package Manager
@@ -248,7 +253,10 @@ docker compose up -d postgres redis
 | `front/sveltekit` | `npm run dev` → :5178 |
 | `front/astro` | `npm run dev` → :4321 |
 | `front/tanstack` | `npm run dev` → :5177 |
-| `front/graphql` | `npm run dev` → :5180 |
+| `front/tanstack-start` | `npm run dev` → :5179 |
+| `front/graphql` | `npm run dev` → :5180（要 `back/graphql`） |
+| `front/pwa` | `npx serve .` |
+| `front/web-components` | ファイルを開く / `npx serve .` |
 | `front/electron` | `npm start` |
 | `front/react-native` | `npx expo start` |
 | `front/playwright` | `npx playwright install chromium && npm test` |
@@ -257,6 +265,11 @@ docker compose up -d postgres redis
 | `back/nest` | `npm run dev` → :3002 |
 | `back/hono` | `npm run dev` → :3003 |
 | `back/fastify` | `npm run dev` → :3004 |
+| `back/prisma` | `npx prisma db push && npm run dev` → :3020（`/docs` が OpenAPI） |
+| `back/realtime` | `npm run dev` → :3021 |
+| `back/graphql` | `npm run dev` → :4000/graphql |
+| `back/oauth` | `npm run dev` → :3022 |
+| `back/cli` | `npm start -- add "hello"` |
 | `back/python` | `uv sync && uv run uvicorn main:app --reload --port 8000` |
 | `back/go` | `go run .` → :8090 |
 | `back/java` | `javac App.java && java App` → :8081 |
@@ -266,9 +279,10 @@ docker compose up -d postgres redis
 | `back/rust` | `cargo run`（rustup が必要） |
 | `back/nginx` | `docker compose up -d nginx` → :8088 |
 | `postgres` | `docker compose up -d postgres` |
-| `fullstack/app` | `npm run dev` → :3010 |
+| `fullstack/app` | `npm run dev` → :3010（Postgres + Redis 必須） |
 | `fullstack/terraform` | 資格情報なしの骨格 |
 | `fullstack/ansible` | `ansible-playbook playbook.yml` |
 | `ios` | `swift test` |
+| `ios/RoadmapsApp` | Xcode で `RoadmapsApp.xcodeproj` を開く |
 
 概念だけのノード（HTTP の仕組み、CAP 定理、HIG など）はインストール対象ではないので、コードではなく README とコメントで扱っています。

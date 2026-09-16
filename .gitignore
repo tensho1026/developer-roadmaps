@@ -70,3 +70,6 @@ bin/
 # Swift
 .swiftpm/
 .build/
+
+front/tanstack-start/count.txt
+back/cli/notes.json
