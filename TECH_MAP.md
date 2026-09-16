@@ -46,7 +46,10 @@
 | Rust | `back/rust` |
 | Express / Nest / Hono / Fastify | `back/` 配下の同名ディレクトリ |
 | PostgreSQL | `postgres/` + Docker |
-| MySQL / MongoDB / Redis / RabbitMQ | `docker-compose.yml` |
+| MySQL / Redis | `docker-compose.yml` / `fullstack/app` |
+| MongoDB / Mongoose | `back/mongoose` + compose |
+| RabbitMQ | `back/rabbitmq` + compose |
+| gRPC | `back/grpc` |
 | Nginx | `back/nginx` + compose |
 | REST / JSON APIs / JWT / bcrypt | `back/express`, `fullstack/app` |
 | Prisma / OpenAPI | `back/prisma` |

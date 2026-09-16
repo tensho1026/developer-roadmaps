@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package notes;
+
+message Note {
+  string id = 1;
+  string title = 2;
+  string body = 3;
+}
+
+message ListNotesRequest {}
+
+message ListNotesResponse {
+  repeated Note notes = 1;
+}
+
+message AddNoteRequest {
+  string title = 1;
+  string body = 2;
+}
+
+service Notes {
+  rpc ListNotes (ListNotesRequest) returns (ListNotesResponse);
+  rpc AddNote (AddNoteRequest) returns (Note);
+}

@@ -21,9 +21,11 @@ while IFS= read -r pkg; do
   install_npm "$(dirname "$pkg")"
 done < <(find front back fullstack -name package.json -not -path '*/node_modules/*' | sort)
 
-if [[ -f back/prisma/.env.example && ! -f back/prisma/.env ]]; then
-  cp back/prisma/.env.example back/prisma/.env
-fi
+for envdir in back/prisma back/mongoose back/rabbitmq; do
+  if [[ -f "$envdir/.env.example" && ! -f "$envdir/.env" ]]; then
+    cp "$envdir/.env.example" "$envdir/.env"
+  fi
+done
 
 if [[ -f back/python/pyproject.toml ]]; then
   echo "==> uv sync back/python"

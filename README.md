@@ -36,6 +36,7 @@ docker compose up -d postgres redis
 | HCL | `fullstack/terraform` | Terraform |
 | YAML | `fullstack/ansible`, `.github/workflows` | Ansible / GitHub Actions |
 | GraphQL | `front/graphql` | クエリ言語（Apollo / urql） |
+| Protocol Buffers | `back/grpc` | gRPC のスキーマ |
 
 ---
 
@@ -159,9 +160,11 @@ docker compose up -d postgres redis
 | Web | `express`, `cors`, `helmet`, `morgan` | `back/express`（fullstack は express + cors） |
 | 認証 | `jsonwebtoken`, `bcryptjs` | `back/express`, `fullstack/app` |
 | ログ | `winston`, `morgan` | `back/express` |
-| DB | `pg`, `@prisma/client` | `fullstack/app`, `back/prisma` |
-| ORM | Prisma | `back/prisma` |
+| DB | `pg`, `@prisma/client`, `mongoose` | `fullstack/app`, `back/prisma`, `back/mongoose` |
+| ORM / ODM | Prisma, Mongoose | `back/prisma`, `back/mongoose` |
 | キャッシュ | `redis`（npm） | `fullstack/app` |
+| メッセージキュー | `amqplib` | `back/rabbitmq` |
+| RPC | `@grpc/grpc-js`, `@grpc/proto-loader` | `back/grpc` |
 | リアルタイム | `ws` | `back/realtime` |
 | CLI | `commander`, `chalk` | `back/cli` |
 | OpenAPI | `/docs` Swagger UI | `back/prisma` |
@@ -270,6 +273,9 @@ docker compose up -d postgres redis
 | `back/graphql` | `npm run dev` → :4000/graphql |
 | `back/oauth` | `npm run dev` → :3022 |
 | `back/cli` | `npm start -- add "hello"` |
+| `back/mongoose` | `docker compose up -d mongodb` のあと `npm run dev` → :3030 |
+| `back/rabbitmq` | `docker compose up -d rabbitmq` のあと `npm run dev` → :3031 |
+| `back/grpc` | `npm run dev` → :50051（別ターミナルで `npm run client`） |
 | `back/python` | `uv sync && uv run uvicorn main:app --reload --port 8000` |
 | `back/go` | `go run .` → :8090 |
 | `back/java` | `javac App.java && java App` → :8081 |
